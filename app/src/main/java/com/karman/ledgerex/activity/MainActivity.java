@@ -10,11 +10,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.karman.ledgerex.R;
+import com.karman.ledgerex.utils.Constants;
 import com.karman.ledgerex.utils.Utils;
 
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    public static boolean login = false;
     ImageView ivNavigation;
     View bottomSheet;
     ImageView ivSwipe;
@@ -77,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
    
     private void isLogin () {
-        if (! login) {
+        if (! Constants.login) {
             Intent intent = new Intent (MainActivity.this, LoginActivity.class);
             startActivity (intent);
             finish ();
@@ -108,5 +111,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             
         }
+    }
+    
+    
+    @Override
+    public void onBackPressed () {
+        MaterialDialog dialog = new MaterialDialog.Builder (this)
+                .limitIconToDefaultSize ()
+                .content ("Close the application?")
+                .positiveText ("Yes")
+                .negativeText ("No")
+                .typeface (Utils.getTypeface (MainActivity.this), Utils.getTypeface (MainActivity.this))
+                .onPositive (new MaterialDialog.SingleButtonCallback () {
+                    @Override
+                    public void onClick (@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        finish ();
+                        overridePendingTransition (R.anim.slide_in_left, R.anim.slide_out_right);
+                    }
+                }).build ();
+        dialog.show ();
     }
 }

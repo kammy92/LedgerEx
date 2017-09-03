@@ -17,9 +17,11 @@ import android.widget.TextView;
 
 import com.google.zxing.WriterException;
 import com.karman.ledgerex.R;
+import com.karman.ledgerex.utils.Constants;
 import com.karman.ledgerex.utils.Utils;
 import com.karman.ledgerex.utils.qr_code.QRContents;
 import com.karman.ledgerex.utils.qr_code.QREncoder;
+
 
 
 public class ReceiveActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,7 +31,6 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
     TextView tvAddress;
     ImageView ivCopy, ivQRCode;
     
-    String address = "0x3635774825368dd25";
     
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
     
     private void initData () {
         Utils.setTypefaceToAllViews (this, rlBack);
-        tvAddress.setText (address);
+        tvAddress.setText (Constants.address);
         
         WindowManager manager = (WindowManager) getSystemService (WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay ();
@@ -52,8 +53,8 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         int height = point.y;
         int smallerDimension = width < height ? width : height;
         smallerDimension = smallerDimension * 3 / 4;
-        
-        QREncoder qrgEncoder = new QREncoder (address, null, QRContents.Type.TEXT, smallerDimension);
+    
+        QREncoder qrgEncoder = new QREncoder (Constants.address, null, QRContents.Type.TEXT, smallerDimension);
         try {
             // Getting QR-Code as Bitmap
             Bitmap bitmap = qrgEncoder.encodeAsBitmap ();
@@ -83,7 +84,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         switch (v.getId ()) {
             case R.id.ivCopy:
                 ClipboardManager clipboard = (ClipboardManager) getSystemService (Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText ("ETHEREUM ADDRESS", address);
+                ClipData clip = ClipData.newPlainText ("ETHEREUM ADDRESS", Constants.address);
                 clipboard.setPrimaryClip (clip);
                 Utils.showToast (ReceiveActivity.this, "Copied to Clipboard!!", false);
                 break;

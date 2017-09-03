@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.karman.ledgerex.R;
+import com.karman.ledgerex.utils.Constants;
 import com.karman.ledgerex.utils.Utils;
 
 
@@ -78,7 +79,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (s.toString ().trim ().length () == 4) {
                     if (checkPIN (Integer.parseInt (s.toString ().trim ()))) {
                         Utils.hideSoftKeyboard (LoginActivity.this);
-                        MainActivity.login = true;
+                        Constants.login = true;
                         Intent intent = new Intent (LoginActivity.this, MainActivity.class);
                         intent.setFlags (Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity (intent);
@@ -136,6 +137,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         bt7.setOnClickListener (this);
         bt8.setOnClickListener (this);
         bt9.setOnClickListener (this);
+        rlBack.setOnClickListener (this);
     }
     
     private boolean checkPIN (int pin) {
@@ -182,8 +184,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     pin = etPIN.getText ().toString ().substring (0, etPIN.getText ().toString ().length () - 1);
                 }
                 break;
-            
+            case R.id.rlBack:
+                finish ();
+                overridePendingTransition (R.anim.slide_in_left, R.anim.slide_out_right);
+                break;
+    
         }
         etPIN.setText (pin);
+    }
+    
+    @Override
+    public void onBackPressed () {
+        super.onBackPressed ();
+        finish ();
+        overridePendingTransition (R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }

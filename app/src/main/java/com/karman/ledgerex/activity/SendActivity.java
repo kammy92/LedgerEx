@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.karman.ledgerex.R;
-import com.karman.ledgerex.utils.SetTypeFace;
 import com.karman.ledgerex.utils.Utils;
 
 import java.util.Locale;
@@ -132,7 +131,7 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
                         .content ("Send " + amount + " ETH  to XYZ?")
                         .positiveText ("Yes")
                         .negativeText ("No")
-                        .typeface (SetTypeFace.getTypeface (SendActivity.this), SetTypeFace.getTypeface (SendActivity.this))
+                        .typeface (Utils.getTypeface (SendActivity.this), Utils.getTypeface (SendActivity.this))
                         .onPositive (new MaterialDialog.SingleButtonCallback () {
                             @Override
                             public void onClick (@NonNull MaterialDialog dialog, @NonNull DialogAction which) {

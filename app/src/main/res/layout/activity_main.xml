@@ -124,7 +124,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="BTC"
+                            android:text="BTC "
                             android:textColor="@color/secondary_text"
                             android:textSize="@dimen/text_size_medium"/>
 
@@ -146,7 +146,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="ETH"
+                            android:text="ETH "
                             android:textColor="@color/primary"
                             android:textSize="@dimen/text_size_medium"/>
 
@@ -168,7 +168,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="LTC"
+                            android:text="LTC  "
                             android:textColor="@color/secondary_text"
                             android:textSize="@dimen/text_size_medium"/>
 
