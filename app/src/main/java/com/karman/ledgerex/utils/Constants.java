@@ -6,5 +6,4 @@ public class Constants {
     public static boolean show_log = true;
     public static boolean login = false;
     public static String address = "0x3635774825368dd25";
-    
 }
