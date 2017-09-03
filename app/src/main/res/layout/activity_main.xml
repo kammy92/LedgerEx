@@ -84,6 +84,17 @@
                     android:textSize="@dimen/text_size_title"
                     android:textStyle="bold"
                 />
+                <ImageView
+                    android:id="@+id/ivInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/activity_margin"
+                    android:paddingRight="@dimen/activity_margin"
+                    android:src="@drawable/ic_info"
+                    android:visibility="visible"/>
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
 

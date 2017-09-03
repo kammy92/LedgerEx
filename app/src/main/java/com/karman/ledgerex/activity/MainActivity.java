@@ -18,7 +18,7 @@ import com.karman.ledgerex.utils.Utils;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    ImageView ivNavigation;
+    ImageView ivNavigation, ivInfo;
     View bottomSheet;
     ImageView ivSwipe;
     RelativeLayout rlBottomSheet;
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btSend = (Button) findViewById (R.id.btSend);
         btReceive = (Button) findViewById (R.id.btReceive);
         btTransfer = (Button) findViewById (R.id.btTransfer);
+        ivInfo = (ImageView) findViewById (R.id.ivInfo);
     }
     
     private void initData () {
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // React to dragging events
             }
         });
+        ivInfo.setOnClickListener (this);
     }
    
     private void isLogin () {
@@ -109,7 +111,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btTransfer:
                 break;
-            
+            case R.id.ivInfo:
+                MaterialDialog dialog = new MaterialDialog.Builder (this)
+                        .limitIconToDefaultSize ()
+                        .content ("LedgerEx Application\nDeveloped By\n    Karman Singh\n    9873684678\n    karman.singhh@gmail.com")
+                        .positiveText ("OK")
+                        .typeface (Utils.getTypeface (MainActivity.this), Utils.getTypeface (MainActivity.this))
+                        .build ();
+                dialog.show ();
+                break;
         }
     }
     
