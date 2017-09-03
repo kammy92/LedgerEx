@@ -228,40 +228,43 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
+                    android:layout_marginEnd="@dimen/activity_margin"
                     android:layout_marginRight="@dimen/activity_margin"
                     android:orientation="vertical"
                     android:paddingTop="@dimen/activity_margin_small">
 
                     <TextView android:layout_width="wrap_content"
                               android:layout_height="wrap_content"
-                              android:layout_gravity="right|end"
+                              android:layout_gravity="end"
                               android:text="ETHEREUM BALANCE"
                               android:textColor="@color/primary_text"
                               android:textSize="@dimen/text_size_extra_small"
                     />
                     <TextView android:layout_width="80dp"
                               android:layout_height="1dp"
-                              android:layout_gravity="right|end"
+                              android:layout_gravity="end"
                               android:layout_marginTop="@dimen/activity_margin_extra_small"
                               android:background="@drawable/progress_bg_selected"/>
 
                     <TextView android:layout_width="wrap_content"
                               android:layout_height="wrap_content"
-                              android:layout_gravity="right|end"
+                              android:layout_gravity="end"
                               android:layout_marginTop="@dimen/activity_margin"
                               android:text="23.97642"
                               android:textColor="@color/primary"
-                              android:textSize="35dp"
+                              android:textSize="35sp"
                               android:textStyle="bold"
                     />
 
                     <TextView android:layout_width="wrap_content"
                               android:layout_height="wrap_content"
-                              android:layout_gravity="right|end"
+                              android:layout_gravity="end"
                               android:layout_marginTop="@dimen/activity_margin_extra_small"
                               android:text="$5976.47"
                               android:textColor="@color/primary_text"
+                              android:textSize="@dimen/text_size_small"
                     />
                 </LinearLayout>
             </RelativeLayout>
@@ -299,31 +302,42 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/tv2"
-                    android:layout_marginTop="@dimen/activity_margin"
-                >
+                    android:layout_marginTop="@dimen/activity_margin">
                     <TableRow>
                         <TextView
-                            android:layout_gravity="right|end"
+                            android:layout_gravity="end"
                             android:text="DAY"
                             android:textColor="@color/secondary_text"
-                        />
-                        <TextView
+                            android:textSize="@dimen/text_size_small"/>
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/activity_margin"
+                            android:layout_marginStart="@dimen/activity_margin"
+                            android:src="@drawable/ic_down"/>
+                        <TextView
                             android:text="0.98%"
                             android:textColor="@color/text_color_red"
-                        />
+                            android:textSize="@dimen/text_size_small"/>
                     </TableRow>
                     <TableRow>
                         <TextView
-                            android:layout_gravity="right|end"
+                            android:layout_gravity="end"
                             android:text="WEEK"
                             android:textColor="@color/secondary_text"
-                        />
-                        <TextView
+                            android:textSize="@dimen/text_size_small"/>
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/activity_margin"
+                            android:layout_marginStart="@dimen/activity_margin"
+                            android:src="@drawable/ic_up"/>
+                        <TextView
                             android:text="2.65%"
                             android:textColor="@color/text_color_green"
-                        />
+                            android:textSize="@dimen/text_size_small"/>
                     </TableRow>
                 </TableLayout>
             </RelativeLayout>
@@ -347,7 +361,8 @@
                     android:gravity="center"
                     android:padding="@dimen/activity_margin_small"
                     android:text="SEND"
-                    android:textColor="@color/secondary_text"/>
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_size_medium"/>
                 <Button
                     android:id="@+id/btReceive"
                     style="?android:attr/borderlessButtonStyle"
@@ -361,7 +376,8 @@
                     android:orientation="vertical"
                     android:padding="@dimen/activity_margin_small"
                     android:text="RECEIVE"
-                    android:textColor="@color/secondary_text"/>
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_size_medium"/>
                 <Button
                     android:id="@+id/btTransfer"
                     style="?android:attr/borderlessButtonStyle"
@@ -374,8 +390,105 @@
                     android:gravity="center"
                     android:padding="@dimen/activity_margin_small"
                     android:text="BUY / SELL"
-                    android:textColor="@color/secondary_text"/>
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_size_medium"/>
             </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/rlBottomSheet"
+                android:layout_width="match_parent"
+                android:layout_height="76dp">
+                <TextView
+                    android:id="@+id/tvGradient"
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    android:background="@drawable/gradient"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/tvGradient">
+                    <TextView
+                        android:id="@+id/tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/activity_margin"
+                        android:gravity="center"
+                        android:text="TRANSACTION HISTORY"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/text_size_medium"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/tv"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/activity_margin"
+                        android:layout_marginTop="@dimen/activity_margin_extra_small"
+                        android:background="@drawable/progress_bg_selected"/>
+                    <ImageView
+                        android:id="@+id/ivSwipe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/activity_margin_small"
+                        android:layout_marginTop="@dimen/activity_margin"
+                        android:src="@drawable/ic_swipe_up"
+                    />
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlBottomSheet"
+                android:layout_margin="@dimen/activity_margin">
+
+                <ImageView
+                    android:id="@+id/iv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_margin"
+                    android:layout_marginRight="@dimen/activity_margin"
+                    android:src="@drawable/ic_outgoing"/>
+
+                <TextView
+                    android:id="@+id/tvTransactionDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_margin"
+                    android:layout_marginStart="@dimen/activity_margin"
+                    android:layout_toRightOf="@+id/iv1"
+                    android:text="28 JULY 2017 | 8:36 AM"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_size_extra_small"
+                />
+                <TextView
+                    android:id="@+id/tvTransactionAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tvTransactionDate"
+                    android:layout_alignStart="@+id/tvTransactionDate"
+                    android:layout_below="@+id/tvTransactionDate"
+                    android:text="0.084316 ETH"
+                    android:textColor="@color/primary_text"
+                    android:textSize="26sp"
+                />
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>
