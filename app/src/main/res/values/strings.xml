@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LedgerEx</string>
+    <string name="snackbar_text_invalid_pin">Invalid PIN</string>
 </resources>

@@ -73,7 +73,7 @@
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/rlMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -82,9 +82,11 @@
             android:weightSum="6.0">
 
             <LinearLayout
+                android:id="@+id/llPinButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2.0"
+                android:layout_above="@+id/llButtons"
+                android:layout_alignParentTop="true"
                 android:gravity="center_horizontal">
 
                 <TextView
@@ -93,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_margin="@dimen/activity_margin"
-                    android:background="@drawable/pin_filled"/>
+                    android:background="@drawable/pin_empty"/>
 
                 <TextView
                     android:id="@+id/tvPin2"
@@ -119,50 +121,50 @@
                     android:layout_margin="@dimen/activity_margin"
                     android:background="@drawable/pin_empty"/>
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="@dimen/activity_margin"
-                android:layout_marginRight="@dimen/activity_margin"
-                android:orientation="horizontal"
-                android:visibility="gone">
                 <!-- Stop auto focussing the EditText -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="@android:color/transparent"
                     android:focusable="true"
-                    android:focusableInTouchMode="true">
+                    android:focusableInTouchMode="true"
+                    android:visibility="gone">
                 </LinearLayout>
                 <EditText
-                    android:id="@+id/etLoginPIN"
+                    android:id="@+id/etPIN"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:ems="6"
                     android:gravity="center"
-
                     android:inputType="text"
                     android:maxLength="10"
                     android:textColor="#000000"
-                    android:textSize="@dimen/text_size_medium"/>
+                    android:textSize="@dimen/text_size_medium"
+                    android:visibility="gone"/>
             </LinearLayout>
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_above="@+id/llButtons"
+                android:background="@drawable/gradient"/>
             <LinearLayout
+                android:id="@+id/llButtons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="4.0"
+                android:layout_alignParentBottom="true"
                 android:elevation="10dp"
                 android:gravity="bottom"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="@dimen/activity_margin">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:weightSum="3">
                     <Button
-                        android:id="@+id/tv1"
+                        android:id="@+id/bt1"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="@dimen/pin_button_size"
                         android:layout_height="@dimen/pin_button_size"
@@ -171,10 +173,10 @@
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:text="1"
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:textSize="@dimen/pin_button_text_size"/>
                     <Button
-                        android:id="@+id/tv2"
+                        android:id="@+id/bt2"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="@dimen/pin_button_size"
                         android:layout_height="@dimen/pin_button_size"
@@ -183,11 +185,11 @@
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:text="2"
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:textSize="@dimen/pin_button_text_size"
                     />
                     <Button
-                        android:id="@+id/tv3"
+                        android:id="@+id/bt3"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="@dimen/pin_button_size"
                         android:layout_height="@dimen/pin_button_size"
@@ -196,7 +198,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:text="3"
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:textSize="@dimen/pin_button_text_size"
                     />
 
@@ -207,7 +209,7 @@
                     android:layout_gravity="center"
                     android:weightSum="3">
                     <Button
-                        android:id="@+id/tv4"
+                        android:id="@+id/bt4"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="@dimen/pin_button_size"
                         android:layout_height="@dimen/pin_button_size"
@@ -216,11 +218,11 @@
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:text="4"
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:textSize="@dimen/pin_button_text_size"
                     />
                     <Button
-                        android:id="@+id/tv5"
+                        android:id="@+id/bt5"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="@dimen/pin_button_size"
                         android:layout_height="@dimen/pin_button_size"
@@ -229,11 +231,11 @@
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:text="5"
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:textSize="@dimen/pin_button_text_size"
                     />
                     <Button
-                        android:id="@+id/tv6"
+                        android:id="@+id/bt6"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="@dimen/pin_button_size"
                         android:layout_height="@dimen/pin_button_size"
@@ -242,7 +244,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:text="6"
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:textSize="@dimen/pin_button_text_size"/>
 
                 </LinearLayout>
@@ -252,7 +254,7 @@
                     android:layout_gravity="center"
                     android:weightSum="3">
                     <Button
-                        android:id="@+id/tv7"
+                        android:id="@+id/bt7"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="@dimen/pin_button_size"
                         android:layout_height="@dimen/pin_button_size"
@@ -261,11 +263,11 @@
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:text="7"
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:textSize="@dimen/pin_button_text_size"
                     />
                     <Button
-                        android:id="@+id/tv8"
+                        android:id="@+id/bt8"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="@dimen/pin_button_size"
                         android:layout_height="@dimen/pin_button_size"
@@ -274,11 +276,11 @@
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:text="8"
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:textSize="@dimen/pin_button_text_size"
                     />
                     <Button
-                        android:id="@+id/tv9"
+                        android:id="@+id/bt9"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="@dimen/pin_button_size"
                         android:layout_height="@dimen/pin_button_size"
@@ -287,7 +289,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:text="9"
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:textSize="@dimen/pin_button_text_size"
                     />
 
@@ -308,12 +310,12 @@
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:src="@drawable/ic_delete"
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:textSize="@dimen/pin_button_text_size"
                     />
 
                     <Button
-                        android:id="@+id/tv0"
+                        android:id="@+id/bt0"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="@dimen/pin_button_size"
                         android:layout_height="@dimen/pin_button_size"
@@ -322,12 +324,12 @@
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:text="0"
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:textSize="@dimen/pin_button_text_size"
                         android:visibility="visible"
                     />
                     <Button
-                        android:id="@+id/tvPeriod"
+                        android:id="@+id/btPeriod"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="@dimen/pin_button_size"
                         android:layout_height="@dimen/pin_button_size"
@@ -336,25 +338,20 @@
                         android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:text="."
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:textSize="@dimen/pin_button_text_size"
                     />
 
                 </LinearLayout>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
-                    <ImageView
-                        android:id="@+id/ivNext"
-                        android:layout_width="@dimen/pin_button_size"
-                        android:layout_height="@dimen/pin_button_size"
-                        android:layout_centerHorizontal="true"
-                        android:layout_margin="@dimen/pin_button_margin"
-                        android:src="@drawable/ic_next"
-                    />
-                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/ivNext"
+                    android:layout_width="@dimen/pin_button_size"
+                    android:layout_height="@dimen/pin_button_size"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/pin_button_margin"
+                    android:src="@drawable/ic_next"/>
             </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

@@ -93,6 +93,7 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/toolbar">
             <RelativeLayout
+                android:id="@+id/rl1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -101,8 +102,10 @@
                     android:layout_width="10dp"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/llValues"
+                    android:layout_alignParentLeft="true"
                     android:layout_alignTop="@+id/llValues"
-                    android:background="@drawable/main_left_border"/>
+                    android:background="@drawable/main_left_border"
+                    android:duplicateParentState="true"/>
                 <LinearLayout
                     android:id="@+id/llValues"
                     android:layout_width="wrap_content"
@@ -225,21 +228,154 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/tvLeftBorder"
-                    android:orientation="horizontal">
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/activity_margin"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/activity_margin_small">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_gravity="right|end"
+                              android:text="ETHEREUM BALANCE"
+                              android:textColor="@color/primary_text"
+                              android:textSize="@dimen/text_size_extra_small"
+                    />
+                    <TextView android:layout_width="80dp"
+                              android:layout_height="1dp"
+                              android:layout_gravity="right|end"
+                              android:layout_marginTop="@dimen/activity_margin_extra_small"
+                              android:background="@drawable/progress_bg_selected"/>
 
-                        <TextView android:layout_width="wrap_content"
-                                  android:layout_height="wrap_content"/>
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_gravity="right|end"
+                              android:layout_marginTop="@dimen/activity_margin"
+                              android:text="23.97642"
+                              android:textColor="@color/primary"
+                              android:textSize="35dp"
+                              android:textStyle="bold"
+                    />
 
-                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_gravity="right|end"
+                              android:layout_marginTop="@dimen/activity_margin_extra_small"
+                              android:text="$5976.47"
+                              android:textColor="@color/primary_text"
+                    />
                 </LinearLayout>
-
             </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl1"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:gravity="end|right"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/activity_margin"
+                android:paddingRight="@dimen/activity_margin"
+                android:paddingStart="@dimen/activity_margin">
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/tv2"
+                    android:layout_toStartOf="@+id/tv2"
+                    android:text="1 ETH = "
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_size_small"/>
+                <TextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:text="0.0916 BTC"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/text_size_small"/>
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/tv2"
+                    android:layout_marginTop="@dimen/activity_margin"
+                >
+                    <TableRow>
+                        <TextView
+                            android:layout_gravity="right|end"
+                            android:text="DAY"
+                            android:textColor="@color/secondary_text"
+                        />
+                        <TextView
+                            android:layout_marginLeft="@dimen/activity_margin"
+                            android:text="0.98%"
+                            android:textColor="@color/text_color_red"
+                        />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:layout_gravity="right|end"
+                            android:text="WEEK"
+                            android:textColor="@color/secondary_text"
+                        />
+                        <TextView
+                            android:layout_marginLeft="@dimen/activity_margin"
+                            android:text="2.65%"
+                            android:textColor="@color/text_color_green"
+                        />
+                    </TableRow>
+                </TableLayout>
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/llButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl2"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:orientation="horizontal"
+                android:weightSum="3.0">
+                <Button
+                    android:id="@+id/btSend"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/pin_button_margin"
+                    android:layout_weight="1.0"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawableTop="@drawable/ic_send"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_margin_small"
+                    android:text="SEND"
+                    android:textColor="@color/secondary_text"/>
+                <Button
+                    android:id="@+id/btReceive"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/pin_button_margin"
+                    android:layout_weight="1.0"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawableTop="@drawable/ic_receive"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/activity_margin_small"
+                    android:text="RECEIVE"
+                    android:textColor="@color/secondary_text"/>
+                <Button
+                    android:id="@+id/btTransfer"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/pin_button_margin"
+                    android:layout_weight="1.0"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawableTop="@drawable/ic_transfer"
+                    android:gravity="center"
+                    android:padding="@dimen/activity_margin_small"
+                    android:text="BUY / SELL"
+                    android:textColor="@color/secondary_text"/>
+            </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

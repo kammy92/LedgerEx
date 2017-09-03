@@ -133,9 +133,9 @@ public class Utils {
     }
     
     
-    public static void shakeEditText (Activity activity, EditText editText) {
+    public static void shakeView (Activity activity, View view) {
         Animation shake = AnimationUtils.loadAnimation (activity, R.anim.shake);
-        editText.startAnimation (shake);
+        view.startAnimation (shake);
     }
 
     /*public static void showSnackBar (CoordinatorLayout coordinatorLayout, String message) {
