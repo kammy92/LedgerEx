@@ -7,7 +7,6 @@
         <item name="colorAccent">@color/accent</item>
     </style>
     <style name="Widget.MyApp.ActionBar" parent="Widget.AppCompat.ActionBar">
-        <item name="android:background">@color/app_background_color</item>
         <item name="theme">@style/ThemeOverlay.MyApp.ActionBar</item>
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
     </style>
@@ -18,9 +17,9 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
     <style name="ThemeOverlay.MyApp.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
-        <item name="android:textColorHint">@color/text_color_grey_light</item>
-        <item name="android:textColorPrimary">@color/text_color_white</item>
-        <item name="actionMenuTextColor">@color/text_color_white</item>
+        <item name="android:textColorHint">@color/secondary_text</item>
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="actionMenuTextColor">@color/primary_text</item>
     </style>
 
 
