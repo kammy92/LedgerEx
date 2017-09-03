@@ -77,9 +77,7 @@
             android:id="@+id/rlMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/toolbar"
-            android:orientation="vertical"
-            android:weightSum="6.0">
+            android:layout_below="@+id/toolbar">
 
             <RelativeLayout
                 android:id="@+id/rlAmount"
@@ -112,10 +110,9 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="@dimen/activity_margin"
                     android:layout_marginTop="@dimen/activity_margin"
-                    android:text="12.34 ETH"
+                    android:text="0.0 ETH"
                     android:textColor="@color/primary_text"
-                    android:textSize="30sp"
-                />
+                    android:textSize="30sp"/>
 
                 <TextView
                     android:id="@+id/tvAmountUSD"
@@ -127,7 +124,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="@dimen/activity_margin"
                     android:layout_marginTop="@dimen/activity_margin_small"
-                    android:text="= 12.34 USD"
+                    android:text="= 0.0 USD"
                     android:textColor="@color/secondary_text"
                     android:textSize="@dimen/text_size_extra_large"/>
 

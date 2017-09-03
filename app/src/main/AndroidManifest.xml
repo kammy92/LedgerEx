@@ -20,5 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.SendActivity"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".activity.ReceiveActivity"
+                  android:screenOrientation="portrait">
+        </activity>
+
     </application>
 </manifest>

@@ -20,7 +20,6 @@ import com.karman.ledgerex.utils.Utils;
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView tvNext;
     RelativeLayout rlBack;
     CoordinatorLayout clMain;
     
@@ -146,55 +145,45 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     
     @Override
     public void onClick (View v) {
-        String pin;
+        String pin = "";
         switch (v.getId ()) {
             case R.id.bt0:
                 pin = etPIN.getText ().toString () + "0";
-                etPIN.setText (pin);
                 break;
             case R.id.bt1:
                 pin = etPIN.getText ().toString () + "1";
-                etPIN.setText (pin);
                 break;
             case R.id.bt2:
                 pin = etPIN.getText ().toString () + "2";
-                etPIN.setText (pin);
                 break;
             case R.id.bt3:
                 pin = etPIN.getText ().toString () + "3";
-                etPIN.setText (pin);
                 break;
             case R.id.bt4:
                 pin = etPIN.getText ().toString () + "4";
-                etPIN.setText (pin);
                 break;
             case R.id.bt5:
                 pin = etPIN.getText ().toString () + "5";
-                etPIN.setText (pin);
                 break;
             case R.id.bt6:
                 pin = etPIN.getText ().toString () + "6";
-                etPIN.setText (pin);
                 break;
             case R.id.bt7:
                 pin = etPIN.getText ().toString () + "7";
-                etPIN.setText (pin);
                 break;
             case R.id.bt8:
                 pin = etPIN.getText ().toString () + "8";
-                etPIN.setText (pin);
                 break;
             case R.id.bt9:
                 pin = etPIN.getText ().toString () + "9";
-                etPIN.setText (pin);
                 break;
             case R.id.ivDelete:
                 if (etPIN.getText ().toString ().length () > 0) {
-                    etPIN.setText (etPIN.getText ().toString ().substring (0, etPIN.getText ().toString ().length () - 1));
+                    pin = etPIN.getText ().toString ().substring (0, etPIN.getText ().toString ().length () - 1);
                 }
                 break;
             
         }
-        
+        etPIN.setText (pin);
     }
 }

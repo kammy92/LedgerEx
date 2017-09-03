@@ -6,18 +6,21 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.karman.ledgerex.R;
 import com.karman.ledgerex.utils.Utils;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static boolean login = false;
     ImageView ivNavigation;
     View bottomSheet;
     ImageView ivSwipe;
     RelativeLayout rlBottomSheet;
+    Button btSend, btReceive, btTransfer;
+    
     private BottomSheetBehavior mBottomSheetBehavior;
     
     @Override
@@ -36,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         ivNavigation = (ImageView) findViewById (R.id.ivNavigation);
         ivSwipe = (ImageView) findViewById (R.id.ivSwipe);
         rlBottomSheet = (RelativeLayout) findViewById (R.id.rlBottomSheet);
+        btSend = (Button) findViewById (R.id.btSend);
+        btReceive = (Button) findViewById (R.id.btReceive);
+        btTransfer = (Button) findViewById (R.id.btTransfer);
     }
     
     private void initData () {
@@ -46,17 +52,10 @@ public class MainActivity extends AppCompatActivity {
     }
     
     private void initListener () {
-        rlBottomSheet.setOnClickListener (new View.OnClickListener () {
-            @Override
-            public void onClick (View v) {
-                if (mBottomSheetBehavior.getState () == BottomSheetBehavior.STATE_EXPANDED) {
-                    mBottomSheetBehavior.setState (BottomSheetBehavior.STATE_COLLAPSED);
-                } else {
-                    mBottomSheetBehavior.setState (BottomSheetBehavior.STATE_EXPANDED);
-                }
-                
-            }
-        });
+        btSend.setOnClickListener (this);
+        btReceive.setOnClickListener (this);
+        btTransfer.setOnClickListener (this);
+        rlBottomSheet.setOnClickListener (this);
         mBottomSheetBehavior.setBottomSheetCallback (new BottomSheetBehavior.BottomSheetCallback () {
             @Override
             public void onStateChanged (@NonNull View bottomSheet, int newState) {
@@ -82,6 +81,32 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent (MainActivity.this, LoginActivity.class);
             startActivity (intent);
             finish ();
+        }
+    }
+    
+    @Override
+    public void onClick (View v) {
+        switch (v.getId ()) {
+            case R.id.rlBottomSheet:
+                if (mBottomSheetBehavior.getState () == BottomSheetBehavior.STATE_EXPANDED) {
+                    mBottomSheetBehavior.setState (BottomSheetBehavior.STATE_COLLAPSED);
+                } else {
+                    mBottomSheetBehavior.setState (BottomSheetBehavior.STATE_EXPANDED);
+                }
+                break;
+            case R.id.btSend:
+                Intent intent = new Intent (MainActivity.this, SendActivity.class);
+                startActivity (intent);
+                overridePendingTransition (R.anim.slide_in_right, R.anim.slide_out_left);
+                break;
+            case R.id.btReceive:
+                Intent intent2 = new Intent (MainActivity.this, ReceiveActivity.class);
+                startActivity (intent2);
+                overridePendingTransition (R.anim.slide_in_right, R.anim.slide_out_left);
+                break;
+            case R.id.btTransfer:
+                break;
+            
         }
     }
 }
