@@ -94,101 +94,134 @@
             android:layout_below="@+id/toolbar">
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/tvLeftBorder"
                     android:layout_width="10dp"
-                    android:layout_height="150dp"
-                    android:background="@drawable/main_left_border"
-                />
-                <TableLayout
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/llValues"
+                    android:layout_alignTop="@+id/llValues"
+                    android:background="@drawable/main_left_border"/>
+                <LinearLayout
+                    android:id="@+id/llValues"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/tvLeftBorder">
-
-                    <TableRow android:layout_margin="@dimen/activity_margin_small">
+                    android:layout_toRightOf="@+id/tvLeftBorder"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/activity_margin_small"
+                    android:paddingLeft="@dimen/activity_margin_small"
+                    android:paddingTop="@dimen/activity_margin_small">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:text="BTC"
                             android:textColor="@color/secondary_text"
                             android:textSize="@dimen/text_size_medium"/>
 
                         <TextView
-                            android:layout_width="80dp"
+                            android:layout_width="60dp"
                             android:layout_height="4dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/activity_margin_small"
                             android:layout_marginStart="@dimen/activity_margin_small"
                             android:background="@drawable/progress_bg_unselected"/>
 
-                    </TableRow>
-                    <TableRow>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/activity_margin_extra_small"
+                        android:orientation="horizontal">
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="BTC"
+                            android:text="ETH"
+                            android:textColor="@color/primary"
+                            android:textSize="@dimen/text_size_medium"/>
+
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="4dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/activity_margin_small"
+                            android:layout_marginStart="@dimen/activity_margin_small"
+                            android:background="@drawable/progress_bg_selected"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/activity_margin_extra_small"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="LTC"
                             android:textColor="@color/secondary_text"
                             android:textSize="@dimen/text_size_medium"/>
 
                         <TextView
-                            android:layout_width="80dp"
+                            android:layout_width="50dp"
                             android:layout_height="4dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/activity_margin_small"
                             android:layout_marginStart="@dimen/activity_margin_small"
                             android:background="@drawable/progress_bg_unselected"/>
 
-                    </TableRow>
-                    <TableRow>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/activity_margin_extra_small"
+                        android:orientation="horizontal">
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="BTC"
+                            android:text="STM"
                             android:textColor="@color/secondary_text"
                             android:textSize="@dimen/text_size_medium"/>
 
                         <TextView
-                            android:layout_width="80dp"
+                            android:layout_width="5dp"
                             android:layout_height="4dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/activity_margin_small"
                             android:layout_marginStart="@dimen/activity_margin_small"
                             android:background="@drawable/progress_bg_unselected"/>
 
-                    </TableRow>
-                    <TableRow>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/activity_margin_extra_small"
+                        android:orientation="horizontal">
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="BTC"
+                            android:text="DSH"
                             android:textColor="@color/secondary_text"
                             android:textSize="@dimen/text_size_medium"/>
-
                         <TextView
-                            android:layout_width="80dp"
+                            android:layout_width="10dp"
                             android:layout_height="4dp"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="@dimen/activity_margin_small"
                             android:layout_marginStart="@dimen/activity_margin_small"
                             android:background="@drawable/progress_bg_unselected"/>
+                    </LinearLayout>
 
-                    </TableRow>
-                    <TableRow>
-                        <TextView
-                            android:layout_gravity="center_vertical"
-                            android:text="BTC"
-                            android:textColor="@color/secondary_text"
-                            android:textSize="@dimen/text_size_medium"/>
-
-                        <TextView
-                            android:layout_width="80dp"
-                            android:layout_height="4dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="@dimen/activity_margin_small"
-                            android:layout_marginStart="@dimen/activity_margin_small"
-                            android:background="@drawable/progress_bg_unselected"/>
-
-                    </TableRow>
-                </TableLayout>
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
